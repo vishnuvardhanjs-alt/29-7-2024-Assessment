@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loading Bar</title>
+    <style>
+      body {
+        background-color: #ffff01;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .main-container {
+        height: 100%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        height: 30px;
+        width: 50px;
+        background-color: #6c58d1;
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 20px;
+      }
+
+      #image {
+        width: 80vw;
+      }
+    </style>
+    <script>
+      let count = 1;
+      function inc() {
+        if (count < 5) {
+          count += 1;
+        }
+        document.getElementById("image").src = `./assets/${count}.png`;
+      }
+
+      function dec() {
+        if (count > 1) {
+          count -= 1;
+        }
+        document.getElementById("image").src = `./assets/${count}.png`;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main-container">
+      <img src="./assets/1.png" alt="" id="image" />
+      <div class="buttons">
+        <button onclick="dec()"><</button>
+        <button onclick="inc()">></button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Counter</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Noto+Sans+TC:wght@100..900&display=swap");
+      body {
+        height: 100vh;
+        width: 100vw;
+        background-color: #f58073;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Comic Neue", cursive;
+        font-weight: 700;
+        font-style: normal;
+      }
+      @media (min-width: 600px) {
+        .main-container {
+          height: 250px;
+          width: 80%;
+          background-color: #ffb6c1;
+          border-radius: 10px;
+          padding: 20px;
+        }
+      }
+      .card{
+        height: 100%;
+        width: 100%;
+      }
+      .main-container {
+        height: 250px;
+        width: 30%;
+        background-color: #ffb6c1;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .bottom-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1em;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+        resize: none;
+      }
+    </style>
+    <script>
+      function change() {
+        const textbox = document.getElementById("textbox").value;
+        document.getElementById("total_chars").innerHTML = textbox.length;
+        const rem = 50 - textbox.length;
+        if (rem < 0) {
+          alert("Character Limit Exceeded, Please Delete Characters!...");
+          document.getElementById("rem_count").innerHTML = 0;
+        } else {
+          document.getElementById("rem_count").innerHTML = rem;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="card">
+        <p>Real-Time Character Counter</p>
+        <textarea
+          id="textbox"
+          placeholder="Please write your text here..."
+          oninput="change()"
+        ></textarea>
+        <div class="bottom-card">
+          <p>Total Characters: <span id="total_chars">0</span></p>
+          <p>Remaining: <span id="rem_count">50</span></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
